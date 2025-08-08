@@ -8,7 +8,7 @@ export default function Header({ darkMode, setDarkMode }) {
         to="/"
         className="text-2xl md:text-3xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400"
       >
-        C – Call Chemical & TILES
+        C – Call Chemical 
       </Link>
       <nav className="space-x-4 flex">
         <NavLink

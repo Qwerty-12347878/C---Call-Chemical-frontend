@@ -57,8 +57,8 @@ const Footer = () => {
       { name: 'Industrial Chemicals', href: '#products' },
       { name: 'Laboratory Reagents', href: '#products' },
       { name: 'Safety Chemicals', href: '#products' },
-      { name: 'Ceramic Tiles', href: '#products' },
-      { name: 'Porcelain Tiles', href: '#products' },
+      { name: 'Ceramic ', href: '#products' },
+      { name: 'Porcelain ', href: '#products' },
       { name: 'Premium Collection', href: '#products' }
     ],
     services: [
@@ -141,7 +141,7 @@ const Footer = () => {
                   C-Call
                 </span>
                 <span className="text-sm text-blue-400 font-medium -mt-1">
-                  Chemical & TILES
+                  Chemical 
                 </span>
               </div>
             </motion.div>
@@ -150,7 +150,7 @@ const Footer = () => {
               variants={fadeInUp}
               className="text-gray-300 mb-8 leading-relaxed text-lg"
             >
-              Your trusted partner for premium chemicals and tiles. We deliver 
+              Your trusted partner for premium chemicals . We deliver 
               quality products with expert service, ensuring safety and satisfaction 
               in every project.
             </motion.p>
@@ -343,7 +343,7 @@ const Footer = () => {
               className="text-gray-400 text-center lg:text-left"
             >
               <p className="text-lg">
-                © {currentYear} <span className="font-semibold text-white">C-Call Chemical & TILES</span>. 
+                © {currentYear} <span className="font-semibold text-white">C-Call Chemical</span>. 
                 All rights reserved.
               </p>
             </motion.div>

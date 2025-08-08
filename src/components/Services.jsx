@@ -36,21 +36,21 @@ const Services = () => {
   const tileServices = [
     {
       icon: Palette,
-      title: 'Ceramic Tiles',
-      description: 'Premium ceramic tiles for residential and commercial spaces.',
-      features: ['Floor Tiles', 'Wall Tiles', 'Designer Patterns', 'Custom Sizes']
+      title: 'Ceramic',
+      description: 'Premium ceramic  for residential and commercial spaces.',
+      features: ['Floor ', 'Wall ', 'Designer Patterns', 'Custom Sizes']
     },
     {
       icon: Grid3x3,
-      title: 'Porcelain Tiles',
-      description: 'Durable porcelain tiles with exceptional strength and beauty.',
+      title: 'Porcelain ',
+      description: 'Durable porcelain  with exceptional strength and beauty.',
       features: ['Large Format', 'Wood Look', 'Stone Look', 'Polished Finish']
     },
     {
       icon: Award,
       title: 'Premium Collection',
-      description: 'Exclusive designer tiles for luxury projects and unique applications.',
-      features: ['Imported Tiles', 'Limited Edition', 'Custom Design', 'Premium Finish']
+      description: 'Exclusive designer  for luxury projects and unique applications.',
+      features: ['Imported ', 'Limited Edition', 'Custom Design', 'Premium Finish']
     }
   ]
 
@@ -198,7 +198,7 @@ const Services = () => {
                 Tile Collections
               </span>
             </h3>
-            <p className="text-gray-400 text-lg">Premium tiles for residential and commercial spaces</p>
+            <p className="text-gray-400 text-lg">Premium  for residential and commercial spaces</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tileServices.map((service, index) => (

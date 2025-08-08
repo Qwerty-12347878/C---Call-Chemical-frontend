@@ -40,7 +40,7 @@ const Navbar = () => {
             <Palette className="h-6 w-6 text-white" />
             <div className="flex flex-col leading-tight">
               <span className="text-xl font-bold text-white">C - Call</span>
-              <span className="text-xs text-white font-medium">Chemical & TILES</span>
+              <span className="text-xs text-white font-medium">Chemical</span>
             </div>
           </div>
 
