@@ -295,10 +295,10 @@ const Footer = () => {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Stay Updated
               </h3>
-              <p className="text-gray-300 text-lg">
+              <p className="text-gray-300 text-base sm:text-lg">
                 Subscribe to our newsletter for the latest products, safety updates, and industry news.
               </p>
             </motion.div>
@@ -307,17 +307,17 @@ const Footer = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="flex space-x-4"
+              className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0"
             >
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-400 transition-all duration-300 hover:border-gray-600/50"
+                className="w-full flex-1 px-4 sm:px-6 py-3 sm:py-4 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-400 transition-all duration-300 hover:border-gray-600/50"
               />
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
               >
                 <span>Subscribe</span>
                 <ExternalLink className="h-5 w-5" />
