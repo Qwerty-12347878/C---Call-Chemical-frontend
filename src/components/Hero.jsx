@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { ArrowRight, Beaker, Palette, Shield, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const features = [
@@ -64,28 +65,40 @@ const Hero = () => {
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight drop-shadow-lg">
                   <span className="block">Premium</span>
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-500 to-purple-500 animate-gradient-x">
-                    Chemicals 
+                    Chemicals
                   </span>
                   <span className="block text-gray-300">for Every Need</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
                   Your trusted partner for high-quality industrial chemicals and
-                  premium. We deliver excellence with every product,
-                  ensuring safety, reliability, and superior performance for
-                  your projects.
+                  premium. We deliver excellence with every product, ensuring
+                  safety, reliability, and superior performance for your
+                  projects.
                 </p>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                <button className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
+                {/* <button className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
+                  <Link to="/products" className="relative z-10">
                   <span>Explore Products</span>
+                  </Link>
+
                   <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
+                </button> */}
 
-                <button className="group relative px-8 py-4 border-2 border-primary-500 text-primary-400 hover:text-white rounded-xl font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 transform hover:scale-105">
+                <Link
+                  to="/products"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 no-underline"
+                >
+                  <span className="relative z-10">Explore Products</span>
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+
+                <button className="group relative px-8 py-4 border-2 border-primary-500 text-primary-400 text-white rounded-xl font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 transform hover:scale-105">
                   <span className="relative z-10">Request Quote</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
                 </button>
