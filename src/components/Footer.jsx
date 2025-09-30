@@ -12,7 +12,8 @@ import {
   ExternalLink,
   ArrowUp
 } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+
 
 // Animation variants
 const fadeInUp = {

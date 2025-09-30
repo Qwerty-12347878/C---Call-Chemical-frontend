@@ -117,7 +117,7 @@ const Services = () => {
             : isGreen
             ? 'group-hover:text-green-300'
             : 'group-hover:text-primary-300'
-        }`}>
+        }`}> 
           {service.title}
         </h3>
         

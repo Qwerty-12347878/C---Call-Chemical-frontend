@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
+
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: i => ({ opacity: 1, y: 0, transition: { delay: 0.1 * i, duration: 0.5 } }),
@@ -132,7 +133,7 @@ export default function Contact() {
         setSubmitStatus(null);
       }, 5000);
       
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
       setTimeout(() => {
         setSubmitStatus(null);

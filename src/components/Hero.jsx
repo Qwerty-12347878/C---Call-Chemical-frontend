@@ -11,7 +11,6 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    // Dynamically load the Spline viewer script
     if (!document.querySelector('script[src*="spline-viewer"]')) {
       const script = document.createElement("script");
       script.type = "module";
@@ -37,12 +36,8 @@ const Hero = () => {
         url="https://prod.spline.design/CQXdhP2a6i9NFj57/scene.splinecode"
       />
       <section id="home" className="min-h-screen flex items-center relative">
-        {/* Spline 3D Background */}
-
-        {/* Semi-transparent overlay to blend Spline with content */}
         <div className="absolute inset-0" style={{ zIndex: 2 }}></div>
 
-        {/* Animated Background - Made more transparent */}
         <div
           className="absolute inset-0 bg-gradient-to-br "
           style={{ zIndex: 3 }}
@@ -59,7 +54,6 @@ const Hero = () => {
           style={{ zIndex: 10 }}
         >
           <div className=" gap-16 items-center">
-            {/* Content */}
             <div className="text-center lg:text-left space-y-8">
               <div className="space-y-6">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight drop-shadow-lg">
@@ -78,17 +72,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                {/* <button className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                  <Link to="/products" className="relative z-10">
-                  <span>Explore Products</span>
-                  </Link>
-
-                  <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button> */}
-
                 <Link
                   to="/products"
                   className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 no-underline"
@@ -104,7 +88,6 @@ const Hero = () => {
                 </button>
               </div>
 
-              {/* Features */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                 {features.map((feature, index) => (
                   <div
@@ -121,67 +104,6 @@ const Hero = () => {
                 ))}
               </div>
             </div>
-
-            {/* <div className="relative flex justify-center lg:justify-end">
-              <div className="relative group">
-                <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-md rounded-3xl shadow-2xl p-16 transform rotate-3 group-hover:rotate-0 transition-all duration-700 border border-gray-700/50 hover:border-primary-500/30 w-full max-w-2xl">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 via-purple-500 to-primary-500 rounded-3xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-700 animate-gradient-x"></div>
-
-                  <div className="grid grid-cols-3 gap-8 mb-12 relative z-10">
-                    {[1, 2, 3, 4, 5, 6].map((item) => (
-                      <div
-                        key={item}
-                        className={`h-28 rounded-full bg-gradient-to-t shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-500 cursor-pointer ${
-                          item % 3 === 0
-                            ? "from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600"
-                            : item % 2 === 0
-                            ? "from-green-500 to-green-700 hover:from-green-400 hover:to-green-600"
-                            : "from-purple-500 to-purple-700 hover:from-purple-400 hover:to-purple-600"
-                        } animate-pulse hover:animate-none`}
-                        style={{
-                          animationDelay: `${item * 0.3}s`,
-                          animationDuration: "2s",
-                        }}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="grid grid-cols-4 gap-4 relative z-10">
-                    {Array.from({ length: 16 }).map((_, index) => (
-                      <div
-                        key={index}
-                        className={`aspect-square rounded-lg cursor-pointer transform hover:scale-125 hover:rotate-12 transition-all duration-300 shadow-md hover:shadow-lg w-12 h-12 ${
-                          index % 4 === 0
-                            ? "bg-gradient-to-br from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600"
-                            : index % 3 === 0
-                            ? "bg-gradient-to-br from-primary-600 to-primary-800 hover:from-primary-500 hover:to-primary-700"
-                            : "bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700"
-                        }`}
-                        style={{
-                          animationDelay: `${index * 0.1}s`,
-                        }}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full animate-bounce shadow-lg hover:shadow-xl cursor-pointer transform hover:scale-125 transition-all duration-300" />
-                  <div
-                    className="absolute -bottom-8 -left-8 w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full animate-bounce shadow-lg hover:shadow-xl cursor-pointer transform hover:scale-125 transition-all duration-300"
-                    style={{ animationDelay: "1s" }}
-                  />
-                  <div
-                    className="absolute top-1/2 -left-6 w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full animate-pulse shadow-lg hover:shadow-xl cursor-pointer transform hover:scale-125 transition-all duration-300"
-                    style={{ animationDelay: "2s" }}
-                  />
-                </div>
-
-                <div className="absolute top-12 -left-12 w-10 h-10 bg-yellow-500 rounded-full animate-ping"></div>
-                <div
-                  className="absolute bottom-24 -right-10 w-8 h-8 bg-pink-500 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.5s" }}
-                ></div>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
