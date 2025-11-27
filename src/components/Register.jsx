@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+export default function Register({ onRegisterSuccess }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,7 +10,7 @@ export default function Register() {
 
   const navigate = useNavigate(); // <-- added
 
-  const API_URL = "http://localhost:5000/api/auth";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export default function Register() {
     setIsLoading(true);
 
     try {
-      const res = await fetch(`${API_URL}/register`, {
+      const res = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -31,18 +31,21 @@ export default function Register() {
         data = { message: "Invalid response from server" };
       }
 
-      if (res.ok) {
-        if (data.success) {
-          setMessage("✅ Registration successful!");
-          setTimeout(() => {
-            navigate("/login"); // <-- navigate to login page
-          }, 1000);
-        } else {
-          setMessage(`❌ ${data.message || "Registration failed"}`);
-        }
-      } else {
-        setMessage(`❌ ${data.message || `Error: ${res.status}`}`);
+      if (!res.ok || !data.success) {
+        const errorMessage =
+          data?.message || `Registration failed (${res.status})`;
+        return setMessage(`❌ ${errorMessage}`);
       }
+
+      setMessage("✅ Registration successful!");
+
+      if (typeof onRegisterSuccess === "function") {
+        onRegisterSuccess(data.user, data.token);
+      }
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 800);
     } catch {
       setMessage("⚠ Network error: Unable to reach API server.");
     } finally {

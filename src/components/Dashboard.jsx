@@ -111,7 +111,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Dashboard() {
-  const API_URL = import.meta.env.VITE_API_URL || "";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [profile, setProfile] = useState(null);
@@ -120,13 +120,28 @@ export default function Dashboard() {
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    if (!token) {
+      setError("You need to log in again to view the dashboard.");
+      setLoading(false);
+      return;
+    }
+
+    const headers = token
+      ? {
+          Authorization: `Bearer ${token}`,
+        }
+      : {};
 
     const tryFetch = async (endpoints) => {
       for (const path of endpoints) {
         try {
           const res = await fetch(`${API_URL}${path}`, { headers });
-          if (res.ok) return await res.json();
+          if (!res.ok) {
+            console.warn(`Request to ${path} failed with status ${res.status}`);
+            continue;
+          }
+          return await res.json();
         } catch (err) {
           console.warn(`Failed to fetch ${path}:`, err);
         }
@@ -139,17 +154,24 @@ export default function Dashboard() {
       setError("");
       try {
         // 1️⃣ Get current logged-in user
-        const user = await tryFetch(["/auth/me"]);
+        const user = await tryFetch(["/auth/profile", "/auth/me"]);
         setProfile(user);
 
         // 2️⃣ Get user-specific data (optional, fallback to null)
-        const data = await tryFetch(["/auth/data"]).catch(() => null);
+        let data = null;
+        try {
+          data = await tryFetch(["/auth/data"]);
+        } catch {
+          data = null;
+        }
         setAllData(data);
 
         // 3️⃣ If user is admin, fetch all users
-        if (user?.role === "admin") {
-          const allUsers = await tryFetch(["/auth/all"]).catch(() => []);
-          setUsers(allUsers);
+        if (user?.role === "admin" || user?.isAdmin) {
+          const allUsers = await tryFetch(["/auth/users", "/auth/all"]).catch(
+            () => []
+          );
+          setUsers(Array.isArray(allUsers) ? allUsers : []);
         }
       } catch (e) {
         setError(e.message || "Failed to load dashboard");
